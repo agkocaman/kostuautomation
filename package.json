@@ -1,7 +1,7 @@
 {
   "name": "kostuautomation",
   "version": "1.0.0",
-  "description": "KOSTU web sitesi için Playwright kullanarak Page Object Model (POM) yapısında test otomasyonu geliştirilmesi ve bu testlerin GitHub Actions üzerinden çalıştırılması. s",
+  "description": "KOSTU web sitesi için Playwright kullanarak Page Object Model (POM) yapısında test otomasyonu geliştirilmesi ve bu testlerin GitHub Actions üzerinden çalıştırılması.",
   "main": "index.js",
   "scripts": {},
   "keywords": [],
