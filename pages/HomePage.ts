@@ -1,4 +1,4 @@
-import { Page, expect } from '@playwright/test';
+import {  Locator, Page, expect } from '@playwright/test';
 import BasePage from './BasePage';
 
 export default class HomePage extends BasePage {
