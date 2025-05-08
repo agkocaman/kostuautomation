@@ -1,15 +1,19 @@
 {
-  "name": "kostuautomation",
+  "name": "hybs_test",
   "version": "1.0.0",
-  "description": "KOSTU web sitesi için Playwright kullanarak Page Object Model (POM) yapısında test otomasyonu geliştirilmesi ve bu testlerin GitHub Actions üzerinden çalıştırılması.",
+  "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "pw:base": "cross-env ENV=2 npx playwright test --project=Chrome",
+    "pw:base-ui": "cross-env ENV=2 npx playwright test --project=Chrome --ui"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@playwright/test": "^1.51.1",
-    "@types/node": "^22.14.0",
-    "typescript": "^5.8.2"
+    "@playwright/test": "^1.52.0",
+    "@types/node": "^22.15.16",
+    "cross-env": "^7.0.3",
+    "tsconfig-paths": "^4.2.0"
   }
 }
