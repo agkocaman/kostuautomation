@@ -1,73 +1,40 @@
-name: Playwright Automated Tests
+name: Playwright Tests
 
-# Tetikleyiciler: Bu workflow ne zaman çalışacak
 on:
-  # Ana ve geliştirme dallarına push yapıldığında
   push:
-    branches: 
-      - main
-      - develop
-  # Ana ve geliştirme dallarına pull request yapıldığında
+    branches: [ main, develop ]
   pull_request:
-    branches: 
-      - main
-      - develop
+    branches: [ main, develop ]
 
-# Çalıştırılacak işler
 jobs:
   test:
-    name: Run Playwright Tests
     timeout-minutes: 30
     runs-on: ubuntu-latest
 
     steps:
-      # ADIM 1: Kod deposunu kopyala
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0 # Tam git geçmişini al (isteğe bağlı)
+    - uses: actions/checkout@v4
+    - uses: actions/setup-node@v4
+      with:
+        node-version: 20
 
-      # ADIM 2: Node.js ortamını kur
-      - name: Setup Node.js Environment
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: 'npm' # NPM önbelleğini etkinleştir (daha hızlı kurulum için)
-      
-      # ADIM 3: Bağımlılıkları yükle
-      - name: Install Dependencies
-        run: npm ci
-        
-      # ADIM 4: Playwright tarayıcılarını kur
-      - name: Install Playwright Browsers
-        run: npx playwright install --with-deps
-      
-      # ADIM 5: TypeScript kodunu derle
-      - name: Compile TypeScript
-        run: npm run tsc || npx tsc
-        
-      # ADIM 6: Testleri çalıştır
-      - name: Execute Playwright Tests
-        run: npx playwright test --project=chromeEN
-        env:
-          CI: true
-          # Diğer çevre değişkenlerini buraya ekleyebilirsiniz
-          # API_KEY: ${{ secrets.API_KEY }}
-      
-      # ADIM 7: Test sonuçlarını kaydet
-      - name: Store Test Results
-        if: always() # Test başarısız olsa bile bu adımı çalıştır
-        uses: actions/upload-artifact@v4
-        with:
-          name: playwright-report
-          path: |
-            playwright-report/
-            test-results/ # Test sonuçları (isteğe bağlı)
-          retention-days: 30
-          
-      # ADIM 8: Test özetini görüntüle (isteğe bağlı)
-      - name: Display Test Summary
-        if: always()
-        run: |
-          echo "Test çalıştırması tamamlandı!"
-          echo "Ayrıntılı rapor için 'Artifacts' bölümünden 'playwright-report' dosyasını indirebilirsiniz."
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Install Playwright
+      run: npx playwright install --with-deps
+
+    - name: Run TypeScript Compilation
+      run: tsc
+
+    - name: Run Playwright tests
+      run: npx playwright test --project=chromeEN
+      env:
+        CI: true
+
+    - name: Upload test results
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: playwright-report
+        path: playwright-report/
+        retention-days: 30
