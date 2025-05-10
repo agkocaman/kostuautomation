@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "pw:base": "cross-env ENV=2 npx playwright test --project=Chrome",
-    "pw:base-ui": "cross-env ENV=2 npx playwright test --project=Chrome --ui"
+    "pw:homePageTR": "cross-env ENV=2 npx playwright test --project=chromeTR",
+    "pw:homePageTR-ui": "cross-env ENV=2 npx playwright test --project=chromeTR --ui",
+    "pw:homePageEN": "cross-env ENV=2 npx playwright test --project=chromeEN",
+    "pw:homePageEn-ui": "cross-env ENV=2 npx playwright test --project=chromeEN --ui"
   },
   "keywords": [],
   "author": "",

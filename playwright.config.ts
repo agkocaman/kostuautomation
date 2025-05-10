@@ -19,7 +19,18 @@ export default defineConfig({
   },
   projects: [
     {
-      name: "chrome",
+      name: "chromeTR",
+      use: {
+        ...devices["Chrome"],
+        viewport: { width: 1920, height: 1080 },
+        locale: 'tr-TR',
+        timezoneId: 'Europe/Istanbul',
+        geolocation: { latitude: 41.0082, longitude: 28.9784 },
+        permissions: ['geolocation']
+      }
+    },
+    {
+      name: "chromeEN",
       use: {
         ...devices["Chrome"],
         viewport: { width: 1920, height: 1080 },
@@ -44,7 +55,7 @@ export default defineConfig({
         ignoreHTTPSErrors: true,
         bypassCSP: true,
         ...devices["iPhone 14 Pro Max"],
-       
+
       },
     },
 
