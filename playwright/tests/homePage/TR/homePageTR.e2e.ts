@@ -16,18 +16,22 @@ export const home = {
                 await expect(page).toHaveTitle(configEnv.titleTR);
             }
         },
-        homePageToolbarContainer: {
+        homePageContactInfo: {
             notes: 'Home toolbar container validation',
             tag: '',
             run: async ({ page }) => {
                 await page.goto("");
                 await expect(homePage.homePageHeader).toBeVisible();
-
-                //contact info
                 await expect(homePage.phoneNumber).toHaveText(configEnv.number);
                 await expect(homePage.emailTxt).toHaveText(configEnv.email);
-
-                //social media
+            }
+        },
+        homePageSocialMedia: {
+            notes: 'Control of social media url information in the home page toolbar',
+            tag: '',
+            run: async ({ page }) => {
+                await page.goto("");
+                await expect(homePage.homePageHeader).toBeVisible();
                 await expect(homePage.socialMedia.nth(0)).toBeVisible();
                 await expect(homePage.socialMedia.nth(0).locator("> a")).toHaveAttribute('href', configEnv.facebook);
                 await expect(homePage.socialMedia.nth(1).locator("> a")).toHaveAttribute('href', configEnv.twitter);
@@ -35,13 +39,25 @@ export const home = {
                 await expect(homePage.socialMedia.nth(3).locator("> a")).toHaveAttribute('href', configEnv.linkedin);
                 await expect(homePage.socialMedia.nth(4).locator("> a")).toHaveAttribute('href', configEnv.youtube);
 
-                //prospective student TR
+            }
+        },
+        homePageProspectiveStudent: {
+            notes: 'Control of prospective student information in the home page toolbar',
+            tag: '',
+            run: async ({ page }) => {
+                await page.goto("");
+                await expect(homePage.homePageHeader).toBeVisible();
                 await expect(homePage.prospectiveStudentLbl).toBeVisible();
                 await expect(homePage.prospectiveStudentLbl.locator('> * a')).toHaveAttribute('href', configEnv.prospectiveStudentUrlTR);
                 await expect(homePage.prospectiveStudentLbl.locator('> * a')).toContainText(configEnv.prospectiveStudentTR);
-
-
-                //search
+            }
+        },
+        homePageSearch: {
+            notes: 'Control of search function in the home page toolbar',
+            tag: '',
+            run: async ({ page }) => {
+                await page.goto("");
+                await expect(homePage.homePageHeader).toBeVisible();
                 await expect(homePage.searchBtn).toBeVisible();
                 await homePage.searchInput.click();
                 await expect(homePage.searchInput).toBeVisible();
@@ -53,7 +69,7 @@ export const home = {
                 await page.goBack();
 
             }
-        }
+        },
 
     }
 }
