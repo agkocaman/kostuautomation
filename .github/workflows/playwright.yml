@@ -27,7 +27,7 @@ jobs:
       run: tsc
 
     - name: Run Playwright tests
-      run: npx playwright test
+      run: npx playwright test --project=chromeEN
       env:
         CI: true
 

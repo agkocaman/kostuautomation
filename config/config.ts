@@ -1,5 +1,5 @@
 let env = process.env.ENV 
-if(!env) env = '1'
+if(!env) env = '2'
 
 export const configEnv = {
   ...((env === '1') && {
