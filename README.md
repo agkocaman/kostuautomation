@@ -3,9 +3,9 @@
 Clone the project on your local computer;
 1. If you don't have `brew` on your local, you must set HomeBrew into your computer before installing Git.This video can help you how to install HomeBrew (https://www.youtube.com/watch?v=9CYT8uKaSdQ)
 2. Install Git. Read this brief document(https://git-scm.com/download/mac)
-3. Create a folder on your desktop or anywhere. The file name is not important, you can give it whatever you want. For example; Pisano
+3. Create a folder on your desktop or anywhere. The file name is not important, you can give it whatever you want. For example; kostu
 4. Open Terminal and access the created folder using cd and ls commands. This video can help you(https://www.youtube.com/watch?v=DvwWJw6Ppns)
-5. When you open your folder location on Terminal run this command `git clone https://github.com/Pisano/pisano-playwright-framework.git`
+5. When you open your folder location on Terminal run this command `git clone https://github.com/kostu/kostu-playwright-framework.git`
 6. Wait until the cloning process complete. When the process complete successfully everything is OK
 ## 🧰 Starting up
 How to open project;
@@ -17,13 +17,9 @@ How to open project;
 6. To run the project type this code into the terminal `npm run pw:test`
 ## 📁 Structure
 ```sh
- |- api # includes our api structure
  |- config # Configuration files
- |- fixtures # Predefined fixture sets & e.g pdf,csv,json files etc.
  |- playwright/pages # Sets of pages for page object model(Define locaters here)
  |- playright/tests # Here is the magic 🧙‍♂️
- |- global-setup # To set something up once before running all tests
- |- global-teardown # To run something once after all the tests
  |- playwright-config # specify any options as globally configuration 
  |- package.json # includes our npm scripts and dependencies
 ```
