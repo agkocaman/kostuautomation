@@ -10,7 +10,7 @@ export const home = {
     E2E: {
         homePageTitle: {
             notes: 'home page title verification',
-            tag: '',
+            tag: '@TR',
             run: async ({ page }) => {
                 await page.goto("");
                 await expect(page).toHaveTitle(configEnv.titleTR);
@@ -18,7 +18,7 @@ export const home = {
         },
         homePageContactInfo: {
             notes: 'Home toolbar container validation',
-            tag: '',
+            tag: '@TR',
             run: async ({ page }) => {
                 await page.goto("");
                 await expect(homePage.homePageHeader).toBeVisible();
@@ -28,7 +28,7 @@ export const home = {
         },
         homePageSocialMedia: {
             notes: 'Control of social media url information in the home page toolbar',
-            tag: '',
+            tag: '@TR',
             run: async ({ page }) => {
                 await page.goto("");
                 await expect(homePage.homePageHeader).toBeVisible();
@@ -43,7 +43,7 @@ export const home = {
         },
         homePageProspectiveStudent: {
             notes: 'Control of prospective student information in the home page toolbar',
-            tag: '',
+            tag: '@TR',
             run: async ({ page }) => {
                 await page.goto("");
                 await expect(homePage.homePageHeader).toBeVisible();
@@ -54,7 +54,7 @@ export const home = {
         },
         homePageSearch: {
             notes: 'Control of search function in the home page toolbar',
-            tag: '',
+            tag: '@TR',
             run: async ({ page }) => {
                 await page.goto("");
                 await expect(homePage.homePageHeader).toBeVisible();
