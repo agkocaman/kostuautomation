@@ -1,4 +1,4 @@
-name: Playwright Tests
+name: Kostu Auto TR
 
 on:
   push:
