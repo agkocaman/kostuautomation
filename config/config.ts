@@ -18,7 +18,7 @@ export const configEnv = {
     youtube: 'https://www.youtube.com/channel/UC3-TsftiUxyObpPGce2cHDQ?view_as=subscriber',
     prospectiveStudentEN: 'INTERNATIONAL STUDENT',  
     prospectiveStudentUrlEN: '/en/international-office/', 
-    prospectiveStudentTR: 'ADAY ÖĞRENCİ',
+    prospectiveStudentTR: 'ADAY ÖĞRENCI',
     prospectiveStudentUrlTR: '/Aday-Ogrenci/',
 
 
